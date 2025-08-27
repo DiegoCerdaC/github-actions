@@ -1,0 +1,34 @@
+{
+  "accounts": [
+    {
+      "name": "whale_watcher_agent",
+      "twitter_handle": "@whalewatchalert",
+      "description": "Monitors whale activities and large transactions in the crypto space"
+    },
+    {
+      "name": "aixbt_agent",
+      "twitter_handle": "@aixbt_agent",
+      "description": "Monitors AI and crypto trading signals and market analysis"
+    },
+    {
+      "name": "kwantxbt_agent",
+      "twitter_handle": "@kwantxbt",
+      "description": "Provides AI-powered technical analysis and market insights, focusing on chart patterns, liquidity, and trading setups"
+    },
+    {
+      "name": "elon_money_agent",
+      "twitter_handle": "@0xelonmoney",
+      "description": "Onchain metrics, research and write about AI agents"
+    },
+    {
+      "name": "s4mmy_eth_agent",
+      "twitter_handle": "@S4mmyEth",
+      "description": "Provides daily roundups and analysis of AI agents within the crypto market, focusing on market trends, innovations, and opportunities"
+    },
+    {
+      "name": "dv_memetic_agent",
+      "twitter_handle": "@DV_Memetics",
+      "description": "Offering depth and rapid insights on the institutional-grade AI x Crypto research, and AI-themed memcoins and tokens."
+    }
+  ]
+}

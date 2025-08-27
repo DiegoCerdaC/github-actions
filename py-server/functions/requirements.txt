@@ -1,0 +1,25 @@
+firebase_functions~=0.1.0
+google-cloud-pubsub>=2.10.0
+
+python-dotenv==1.0.1
+requests
+asyncio
+
+firebase-admin==6.5.0
+autogen-agentchat==0.5.7
+autogen-ext[openai]==0.5.7
+
+# ethereum
+web3==6.15.1
+# solana
+solana==0.33.0
+base58==2.1.1
+solders==0.21.0
+
+pytz
+pandas
+
+# tracing
+opentelemetry-sdk
+opentelemetry-exporter-gcp-trace
+opentelemetry-propagator-gcp

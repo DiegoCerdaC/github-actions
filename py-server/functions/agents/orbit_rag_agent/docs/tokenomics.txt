@@ -1,0 +1,55 @@
+Our token is designed to power the platform’s **token-gating** features and provide long-term value via **buybacks** and **reward distributions** to holders.
+## **Token Utility**
+• **Platform Access & Token Gating**
+Token holders gain exclusive access to premium features, community events, and product upgrades.
+• **Buybacks & Rewards**
+A portion of platform revenue is used to **buy back** tokens on the open market. These tokens are then redistributed, allowing holders to share in the project’s success.
+## **Supply and Distribution**
+**Total Token Supply (Fully Diluted):** Valued at $19M FDV.
+A strict **12%** is allocated as follows:
+1.  **Liquidity Pool – 2%**
+• **Unlocked at TGE** (Token Generation Event).
+• Immediately adds depth to DEXs or other liquidity pools, reducing volatility and earning trading fees.
+2.  **Treasury – 5%**
+• **Vests 1% each month for 5 months** (Months 1–5).
+• **Flexible**: Used for operations, marketing, exchange listings, or additional liquidity if market conditions warrant.
+3.  **Community – 2%**
+• **~~0.5% at TGE**, then **0.5% unlocks** at Months **4**, **8**, and **12**.~~
+• 0.5% at TGE then 0.125% unlocked monthly (change was due to delay in vesting setup and provider platform limitations, opted to ensure we vest at the same end date as opposed to earlier.)
+• Funds airdrops, rewards, and community incentive programs on a rolling basis, keeping engagement high.
+• Funds airdrops, rewards, and community incentive programs on a rolling basis, keeping engagement high.
+4.  **Team & Investors – 3%**
+• **Fully locked until Month 12**, then released in a **lump sum**.
+• Signals long-term commitment and confidence in the project.
+**Total:** **12%**
+All remaining tokens (88%) are already in circulation or otherwise accounted for, ensuring no surprises for current holders.
+Vesting Schedule at a Glance
+| Month | Liquidity | Community | Treasury (Cumulative)   | Team & Investors     |
+|-------|-----------|-----------|-------------------------|----------------------|
+| 0     | 2%(TGE)   | 0.5%(TGE) | – (5% locked)           | Locked (3%)          |
+| 1     | –         | 0.625%    | +1% (1% total)          | Locked               |
+| 2     | –         | 0.75%     | +1% (2% total)          | Locked               |
+| 3     | –         | 0.875%    | +1% (3% total)          | Locked               |
+| 4     | –         | 1%        | +1% (4% total)          | Locked               |
+| 5     | –         | 1.125%    | +1% (5% total)          | Locked               |
+| 6     | –         | 1.25%     | – (Treasury fully vested) | Locked               |
+| 7     | -         | 1.375%    | -                       | Locked               |
+| 8     | –         | 1.5%      | –                       | Locked               |
+| 9     | –         | 1.625%    | –                       | Locked               |
+| 10    | –         | 1.75%     | –                       | Locked               |
+| 11    | -         | 1.875%    | -                       | Locked               |
+| 12    | -         | 2%        | -                       | 3%(Team/Investors)   |
+## **Revenue Collection & Buyback Mechanism**
+1.  **Collecting Revenue**
+• Transaction fee taken or swapped to **stablecoins** (e.g., USDC) or **major cryptocurrencies** (e.g., SOL). This approach reduces volatility and allows strategic timing for token buybacks.
+2.  **Buyback Allocation**
+• A **fixed portion** (**30–50%** of net revenue) is used for **open-market buybacks** of the token.
+• The remaining revenue covers operational costs, further product development, and business expansion.
+3.  **Token Distribution**
+•  **redistributed** to long-term holders, stakers, or liquidity providers, aligning incentives and rewarding community participation.
+## **Why This Structure Works**
+• **Immediate Liquidity** (2%) reduces volatility and builds early trust.
+• **Steady Treasury Unlocks** (5%) let the project adapt monthly for marketing, listings, and operations.
+• **Community Allocations** (2%) in multiple unlocks spark ongoing engagement and rewards.
+• **Long-Term Lock** (3% for Team & Investors) emphasizes commitment and reduces dump risk.
+Overall, this balanced approach provides a stable environment for organic growth, ensures fair community participation, and aligns the project’s success with token holder interests.

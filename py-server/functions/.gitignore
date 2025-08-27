@@ -1,0 +1,5 @@
+*.local
+*.sh
+__pycache__
+data
+firebase-export-*

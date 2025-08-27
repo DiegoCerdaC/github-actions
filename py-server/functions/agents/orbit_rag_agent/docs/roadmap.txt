@@ -1,0 +1,8 @@
+# Q1 2024 — Platform MVP Launch
+Initial release featuring token-gated access, product requests, and voting.
+# Q2 2024 — Feedback & Iteration
+Incorporate user feedback, launch airdrops and engagement rewards.
+# Q3 2024 — Buybacks & Token Utility Expansion
+Token buybacks using platform revenue. Expand token utility.
+# Q4 2024 — Scale & Partner Integrations
+Form strategic partnerships. Expand platform based on usage and priorities.

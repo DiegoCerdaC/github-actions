@@ -1,0 +1,4 @@
+Token Name: Orbit  
+Token Symbol: GRIFT
+Token Address: GekTNfm84QfyP2GdAHZ5AgACBRd69aNmgA5FDhZupump
+Token Logo: https://firebasestorage.googleapis.com/v0/b/sphereone-testing.appspot.com/o/orbit%2FUntitled.png?alt=media&token=fcf4f20a-b230-469b-9b1c-d4eaf0168272

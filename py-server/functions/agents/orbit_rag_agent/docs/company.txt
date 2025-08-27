@@ -1,0 +1,3 @@
+SphereOne is an Austin-based startup founded in 2021 that provides decentralized AI and blockchain infrastructure for seamless crypto payments, offering a secure one-click checkout and a Web SDK for easy integration into merchant platforms.
+Co-founded by Ryan McNutt (CEO) and Christopher Ries (COO), the company closed a $2.5 million seed round led by Distributed Global with participation from Newark Venture Partners, Zero Knowledge, and other angel investors.
+SphereOne aims to simplify on- and off-chain interactions between fiat and crypto assets across multiple blockchains and empowers autonomous financial experiences through the power of AI Agents.

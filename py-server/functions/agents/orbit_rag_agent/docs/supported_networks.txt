@@ -1,0 +1,39 @@
+# Supported Networks and Protocols in Orbit
+
+## Supported Chains
+Orbit supports a wide range of blockchain networks, including:
+
+- Ethereum (ETH)
+- Polygon (MATIC)
+- Binance Smart Chain (BSC)
+- Avalanche (AVAX)
+- Optimism (OP)
+- Arbitrum (ARB)
+- Base
+- Mode
+- Mantle
+- Linea
+- zkSync
+- Fantom
+- Moonbeam
+- Celo
+- Cronos
+- Blast
+- Scroll
+- Lisk
+- Metis
+- Aurora
+- Moonriver
+- Boba
+- Fuse
+- Rootstock
+- Taiko
+- Fraxtal
+- Sei
+- Polygon zkEvm
+- Immutable zkEvm
+- World Chain
+
+- Solana (SOL)
+
+This comprehensive support allows Orbit users to access a wide range of DeFi services and liquidity across multiple blockchain networks, making it one of the most versatile DeFi platforms available. 
