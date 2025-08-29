@@ -172,6 +172,16 @@ class TestLuloYieldFunctions:
         assert "Error fetching user account info" in result
         assert "404" in result
     
+    def test_fetch_account_info_network_error(self, monkeypatch):
+        """Test account info fetching with network error"""
+        # Mock the HTTP request to raise network error
+        with patch('agents.solana_yield_agent.lulo_yield_functions.requests.get', side_effect=requests.exceptions.HTTPError("Network Error")):
+            result = self.fetch_account_info(mock_wallet_address, mock_chat_id)
+
+        # Verify the error message
+        assert "Network error occurred while fetching account info" in result
+        assert "Network error" in result
+    
     def test_get_user_deposits_success_with_frontend(self, monkeypatch):
         """Test successful user deposits retrieval with frontend quoting"""
         # Mock dependencies

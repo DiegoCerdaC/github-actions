@@ -126,6 +126,31 @@ def _install_fake_services():
     fake_firebase.save_ui_message = lambda *a, **k: None
     fake_firebase.save_agent_thought = lambda *a, **k: None
     fake_firebase.get_top_traders_wallets = lambda *a, **k: ['wallet1', 'wallet2', 'wallet3', 'wallet4', 'wallet5']
+    fake_firebase.get_enso_supported_chains_and_protocols = lambda *a, **k: {
+        "8453": {
+            "protocols": ["aave-v3", "morpho-blue-vaults"]
+        }
+    }
+    fake_firebase.get_enso_supported_tokens = lambda *a, **k: [
+        {
+                "apy": 5.2,
+                "tvl": 1000000,
+                "underlyingTokens": [],
+                "project": "aave-v3",
+                "token": {
+                    "chainId": 8453,
+                    "chain": "base",
+                    "name": "USDC",
+                    "symbol": "USDC",
+                    "decimals": 18,
+                    "address": "0x123",
+                    "logo_uri": "https://logos.covalenthq.com/tokens/8453/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913.png",
+                },
+                "chain_id": "8453",
+                "chain_name": "base",
+                "updated_at": "2025-08-29T12:00:00Z",
+            }
+    ]
     fake_firebase.db = object()  # Mock the db object
     
     # Mock config
@@ -134,6 +159,7 @@ def _install_fake_services():
     fake_config.SOL_VALIDATORS_API_KEY = "fake-api-key-12345"
     fake_config.LULO_API_KEY = "fake-lulo-api-key-67890"
     fake_config.OPENAI_API_KEY = "fake-openai-api-key"
+    fake_config.MORALIS_API_KEY = "fake-moralis-api-key"
     
     # Mock services.chains
     fake_chains = types.ModuleType("services.chains")
@@ -275,16 +301,21 @@ def _install_fake_services():
     fake_solders.pubkey.Pubkey.from_string = lambda *a, **k: "fake_pubkey"
     
     # Mock requests
-    # Remove the following lines to stop mocking 'requests'
-    # fake_requests = types.ModuleType("requests")
-    # fake_requests.post = lambda *a, **k: None
-    # fake_requests.get = lambda *a, **k: None
-    # fake_requests_exceptions = types.ModuleType("requests.exceptions")
-    # fake_requests_exceptions.HTTPError = Exception
-    # fake_requests_exceptions.RequestException = Exception
-    # fake_requests.exceptions = fake_requests_exceptions
-    # sys.modules.setdefault('requests', fake_requests)
-    # sys.modules.setdefault('requests.exceptions', fake_requests_exceptions)
+    fake_requests = types.ModuleType("requests")
+    fake_requests.post = lambda *a, **k: None
+    fake_requests.get = lambda *a, **k: None
+    
+    # Mock requests.exceptions
+    fake_requests_exceptions = types.ModuleType("requests.exceptions")
+    fake_requests_exceptions.HTTPError = Exception
+    fake_requests_exceptions.RequestException = Exception
+    fake_requests.exceptions = fake_requests_exceptions
+    
+    # Mock services.prices
+    fake_prices = types.ModuleType("services.prices")
+    fake_prices.get_token_price_from_provider = lambda *a, **k: {"price": "100.0"}
+    fake_prices.PriceProviderType = types.ModuleType("PriceProviderType")
+    fake_prices.PriceProviderType.LIFI = "LIFI"
     
     # Inyecta en sys.modules
     sys.modules.setdefault('services.tracing', fake_tracing)
@@ -298,6 +329,9 @@ def _install_fake_services():
     sys.modules.setdefault('utils.blockchain_utils', fake_blockchain_utils)
     sys.modules.setdefault('utils.bignumber', fake_bignumber)
     sys.modules.setdefault('solders.pubkey', fake_solders.pubkey)
+    sys.modules.setdefault('requests', fake_requests)
+    sys.modules.setdefault('requests.exceptions', fake_requests_exceptions)
+    sys.modules.setdefault('services.prices', fake_prices)
 
 def pytest_sessionstart(session):
     _install_fake_firebase()

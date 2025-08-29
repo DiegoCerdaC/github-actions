@@ -3,6 +3,7 @@ import types
 import sys
 import os
 from unittest.mock import Mock, patch
+import requests
 
 # Add the current directory to Python path so we can import the modules
 sys.path.insert(0, '.')
@@ -404,6 +405,41 @@ class TestLifiGetQuote:
         
         # Verify the result
         assert result == {"quote": "success", "amount": "100"}
+    
+    def test_backend_quoting_http_error(self, monkeypatch):
+        """Test backend quoting with HTTP error"""
+        # Mock dependencies
+        monkeypatch.setattr('agents.dex_agent.lifi_functions.tokens_service.get_token_metadata',
+                            lambda chain, token: mock_from_token_info if token == "USDC" else mock_to_token_info)
+        
+        monkeypatch.setattr('agents.dex_agent.lifi_functions.get_request_ctx',
+                            lambda parentKey, key: mock_evm_wallet_address if key == "evm_wallet_address" else 
+                                                 mock_solana_wallet_address if key == "solana_wallet_address" else
+                                                 "0.5" if key == "slippage" else "1" if key == "allowance" else mock_user_id)
+        
+        monkeypatch.setattr('agents.dex_agent.lifi_functions.save_agent_thought', lambda **kwargs: None)
+        
+        # Mock the HTTP request to raise an error
+        mock_response = Mock()
+        mock_response.content = b"Error message"
+        mock_response.raise_for_status.side_effect = requests.exceptions.HTTPError("HTTP Error")
+        
+        with patch('agents.dex_agent.lifi_functions.requests.post', return_value=mock_response):
+            # Test the function
+            result = self.lifi_get_quote(
+                from_chain="ETHEREUM",
+                to_chain="ETHEREUM",
+                from_token_symbol="USDC",
+                to_token_symbol="USDT",
+                from_amount="100",
+                is_usd=False,
+                chat_id="test-chat-123",
+                use_frontend_quoting=False
+            )
+        
+        # Verify the result
+        assert "There was an error building the exchange quote" in result
+        assert "Error message" in result
     
     def test_no_wallet_addresses(self, monkeypatch):
         """Test without any wallet addresses for backend quoting"""
