@@ -300,17 +300,6 @@ def _install_fake_services():
     fake_solders.pubkey.Pubkey = types.ModuleType("Pubkey")
     fake_solders.pubkey.Pubkey.from_string = lambda *a, **k: "fake_pubkey"
     
-    # Mock requests
-    fake_requests = types.ModuleType("requests")
-    fake_requests.post = lambda *a, **k: None
-    fake_requests.get = lambda *a, **k: None
-    
-    # Mock requests.exceptions
-    fake_requests_exceptions = types.ModuleType("requests.exceptions")
-    fake_requests_exceptions.HTTPError = Exception
-    fake_requests_exceptions.RequestException = Exception
-    fake_requests.exceptions = fake_requests_exceptions
-    
     # Mock services.prices
     fake_prices = types.ModuleType("services.prices")
     fake_prices.get_token_price_from_provider = lambda *a, **k: {"price": "100.0"}
@@ -329,8 +318,6 @@ def _install_fake_services():
     sys.modules.setdefault('utils.blockchain_utils', fake_blockchain_utils)
     sys.modules.setdefault('utils.bignumber', fake_bignumber)
     sys.modules.setdefault('solders.pubkey', fake_solders.pubkey)
-    sys.modules.setdefault('requests', fake_requests)
-    sys.modules.setdefault('requests.exceptions', fake_requests_exceptions)
     sys.modules.setdefault('services.prices', fake_prices)
 
 def pytest_sessionstart(session):
