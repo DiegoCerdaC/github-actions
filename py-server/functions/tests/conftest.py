@@ -125,6 +125,10 @@ def _install_fake_services():
     fake_firebase.set_request_ctx = lambda *a, **k: None
     fake_firebase.save_ui_message = lambda *a, **k: None
     fake_firebase.save_agent_thought = lambda *a, **k: None
+    fake_firebase.db_save_pool_address_for_wallet = lambda *a, **k: None
+    fake_firebase.generate_firebase_id_token = lambda *a, **k: "fake-token"
+    fake_firebase.get_cached_tweets = lambda *a, **k: []
+    fake_firebase.db_get_user_open_pools = lambda *a, **k: ["pool123", "pool456"]
     fake_firebase.get_top_traders_wallets = lambda *a, **k: ['wallet1', 'wallet2', 'wallet3', 'wallet4', 'wallet5']
     fake_firebase.get_enso_supported_chains_and_protocols = lambda *a, **k: {
         "8453": {
@@ -160,10 +164,14 @@ def _install_fake_services():
     fake_config.LULO_API_KEY = "fake-lulo-api-key-67890"
     fake_config.OPENAI_API_KEY = "fake-openai-api-key"
     fake_config.MORALIS_API_KEY = "fake-moralis-api-key"
+    fake_config.COINMARKETCAP_API_KEY = "fake-coinmarketcap-api-key"
+    fake_config.SERPER_API_KEY = "fake-serper-api-key"
+    fake_config.TWITTER_BEARER_TOKEN = "fake-twitter-bearer-token"
     
     # Mock services.chains
     fake_chains = types.ModuleType("services.chains")
     fake_chains.call_chains_service = lambda *a, **k: None
+    fake_chains.get_all_native_tokens = lambda *a, **k: []
     
     # Mock services.tokens
     fake_tokens = types.ModuleType("services.tokens")
@@ -184,6 +192,8 @@ def _install_fake_services():
     fake_transactions.TransactionType.DEPOSIT.value = "deposit"
     fake_transactions.TransactionType.WITHDRAW = types.ModuleType("WITHDRAW")
     fake_transactions.TransactionType.WITHDRAW.value = "withdraw"
+    fake_transactions.TransactionType.REQUEST_WITHDRAW = types.ModuleType("REQUEST_WITHDRAW")
+    fake_transactions.TransactionType.REQUEST_WITHDRAW.value = "request_withdraw"
     fake_transactions.TransactionType.LIQUIDATION = types.ModuleType("LIQUIDATION")
     fake_transactions.TransactionType.LIQUIDATION.value = "liquidation"
     
@@ -297,14 +307,26 @@ def _install_fake_services():
     # Mock solders.pubkey
     fake_solders = types.ModuleType("solders")
     fake_solders.pubkey = types.ModuleType("pubkey")
-    fake_solders.pubkey.Pubkey = types.ModuleType("Pubkey")
-    fake_solders.pubkey.Pubkey.from_string = lambda *a, **k: "fake_pubkey"
+    
+    class FakePubkey:
+        def __init__(self, *args, **kwargs):
+            pass
+        
+        def __str__(self):
+            return "9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM"
+        
+        @classmethod
+        def from_string(cls, *args, **kwargs):
+            return cls()
+    
+    fake_solders.pubkey.Pubkey = FakePubkey
     
     # Mock services.prices
     fake_prices = types.ModuleType("services.prices")
     fake_prices.get_token_price_from_provider = lambda *a, **k: {"price": "100.0"}
     fake_prices.PriceProviderType = types.ModuleType("PriceProviderType")
     fake_prices.PriceProviderType.LIFI = "LIFI"
+    fake_prices.PriceProviderType.JUPITER = "JUPITER"
     
     # Inyecta en sys.modules
     sys.modules.setdefault('services.tracing', fake_tracing)
